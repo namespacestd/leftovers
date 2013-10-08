@@ -1,0 +1,43 @@
+
+.ngo_post_title{
+    font-size: 40px;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 10px;
+}
+.ngo_post_date{
+    font-size: 30px;
+    margin-top: 60px;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+}
+.ngo_post_author{
+    margin-top: 5px;
+    font-size: 25px;
+    font-weight: normal;
+}
+.ngo_post_img{
+    margin-top: 35px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    width: 90%;
+}
+.ngo_post_text{
+    margin-top: 35px;
+    font-size: 25px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.ngo_post_original{
+    margin-top: 30px;
+    font-size: 18px;
+    text-align: center;
+}
+img{
+    width: 100%;
+}

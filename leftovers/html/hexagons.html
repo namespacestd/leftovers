@@ -1,0 +1,41 @@
+{% if size == "small" %}
+    <div id="{{hex_id}}" class="hexframe outerframe">
+        {% if link %} <a href="{{link}}">
+        {% endif %}
+        <div class="hexright"></div>
+        <div class="hexleft"></div>
+        {% if solid %} <div class="hexsolid">
+        {% else %} <div class="hexframe innerframe">
+        {% endif %}
+            {% if hex_text %} <div class = "hex_content" id="{{text_id}}"> {{hex_text}} </div>
+            {% endif %}
+            
+            <div class="hexright"></div>
+            <div class="hexleft"></div>
+        </div>
+        {% if link %} </a>
+        {% endif %}
+    </div>
+{% elif size == "large" %}
+    <div id="{{hex_id}}" class="hexframe bigouterframe">
+        {% if link %} <a href="{{link}}">
+        {% endif %}
+        <div class="hexright hexbottom"></div>
+        <div class="hexleft hextop"></div>
+        <div class="hexright hextop"></div>
+        <div class="hexleft hexbottom"></div>
+        {% if solid %} <div class="bighexsolid">
+        {% else %} <div class="hexframe bighexframe biginnerframe">
+        {% endif %}
+            {% if hex_text %} <div class = "hex_content" id="{{text_id}}"> {{hex_text}} </div>
+            {% endif %}
+
+            <div class="hexright hexbottom"></div>
+            <div class="hexleft hextop"></div>
+            <div class="hexright hextop"></div>
+            <div class="hexleft hexbottom"></div>
+        </div>
+        {% if link %} </a>
+        {% endif %}
+    </div>
+{% endif %}

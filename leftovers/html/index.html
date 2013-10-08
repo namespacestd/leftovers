@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<link rel="stylesheet" href="/static/css/reset.css" />
+	<link rel="stylesheet" href="/static/css/main2.css" />
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+	<script type = "text/javascript" src= "http://code.jquery.com/jquery-1.9.1.js"></script>
+	<script type = "text/javascript" src="/static/js/home_slide.js"></script>
+	<link href="/static/css/jquery.mCustomScrollbar.css" rel="stylesheet" />
+	<script type="text/javascript">
+	$(window).bind("load", function() {
+		//var numSlides = 2;
+		//startSlideshow(numSlides);
+	});
+	</script>
+	<style>
+		a {
+			text-decoration=inherit;
+			color: black;
+		}
+	</style>
+
+	<title></title>
+</head>
+<body>
+	
+	<div id="main_body">
+		{% include 'menu.html' %}
+		<br/><br/><br/><br/>
+		<div style="position: absolute; width: 300px; height: 300px; text-align: center; margin-left: 30px; font-size: 30px; "> Users with leftovers: <br/><br/>
+			{% if users_exist %}
+				{% for user in avaliable_users %} 
+					{{ user.username }} ({{user.meals_offered}})
+				{% endfor %}
+			{% else %}
+				None =(
+			{% endif %}
+		</div>
+
+		<div style="positon: absolute; width: 300px; height: 300px; text-align: center; margin-left: 350px; font-size: 30px; "> 
+			{% if logged_in %}
+				Hello {{ username }}
+				<br/><br/>
+				Your avaliabilities are: 
+				{% for avaliable in avaliabilities %}
+					{{avaliable.weekday}}, {{avaliable.time_start}} to {{avaliable.time_end}}
+				{% endfor %}
+			{% else %}
+				Please Login or Register
+			{% endif %}
+		</div>
+
+		<a href="add_avaliability"> Add Avaliabilities </a>
+		<!--
+		<div id="slideshow">
+			{% for post in major_posts|slice:":2" %}
+				<div class="slide" id="slide{{forloop.counter}}"/>
+				<a href="post_{{post.ngo.name|slugify}}_{{post.post_id}}"><img class="slide_img" src="{{ post.image.path | slice:"44:" }}" /></a>
+				<div class="slide_descrip">
+					<div class="slide_title"> {{ post.title }} </div>
+					<div class="slide_news"> {{ post.news }} </div>
+				</div>
+				</div>
+			{% endfor %}
+		</div>
+
+		<div id="most_popular">
+			<div class="section_title"> Most Popular </div> 
+
+			<div id="sort_field">
+				<div style="font-size: 20px; margin-bottom: 10px; width: 150px;"> Sort By Topic </div>
+				<select id="choices">
+					<option value="all">All</option>
+					<option value="environmental">Environmental</option>
+					<option value="justice">Justice</option>
+					<option value="international">International</option>
+					<option value="health">Health</option>
+					<option value="education">Education</option>
+					<option value="energy">Energy</option>
+				</select>
+			</div>
+			{% for post in all_posts|slice:":3" %}
+				<div class="section_item {% for class in post.classifications.all %}{{class.classification}} {% endfor %}">
+					<div class="item_ngo_name"> {{ post.ngo.name }} </div>
+					<div class="item_title"> {{ post.title }} </div>
+					<a href="post_{{post.ngo.name|slugify}}_{{post.post_id}}"><img class="item_img" src={{ post.image.path | slice:"44:" }} /></a>
+					<div class="item_news"> {{ post.news }} </div>
+				</div>
+			{% endfor %}
+
+			<a href="#" class="classname" style="position: absolute; top: 650px; left: 525px;">Show More</a>
+		</div>
+
+	</div>-->
+	<script src="/static/js/jquery.mCustomScrollbar.concat.min.js"></script>
+	<script>
+	(function($){
+		$(window).load(function(){
+			$(".item_news").mCustomScrollbar({
+				autoHideScrollbar:true,
+				theme:"dark-thin",
+			});
+			$(".slide_news").mCustomScrollbar({
+				autoHideScrollbar:true,
+				theme:"dark-thin",
+			});
+		});
+	})(jQuery);
+	</script>
+</body>
+</html>

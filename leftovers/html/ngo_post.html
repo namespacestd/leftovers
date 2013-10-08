@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link rel="stylesheet" href="/static/css/reset.css" />
+    <link rel="stylesheet" href="/static/css/main2.css" />
+    <link rel="stylesheet" href="/static/css/ngo_post.css" />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+    <script type = "text/javascript" src= "http://code.jquery.com/jquery-1.9.1.js"></script>
+    <title> {{ post.title }}</title>
+</head>
+<body>
+    <div id="main_body">
+        {% include 'menu.html' %} 
+
+        <div class="ngo_post_date">
+            {{ post.month }} {{ post.year }}
+        </div>
+        <div class="ngo_post_title"> 
+            {{ post.title }} 
+            <div class="ngo_post_author"> By: {{ post.author }} </div>
+        </div>
+        <div class="ngo_post_img"><img src={{ post.image.path | slice:"44:" }} /></div>
+        <div class="ngo_post_text">
+            {{ post.news }}
+
+            <div class="ngo_post_original">
+                Post Linked From: <a href="{{ post.original_link }}"> {{ post.original_link }} </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
